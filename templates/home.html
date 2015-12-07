@@ -1,0 +1,15 @@
+<div  class="page-header">
+    <h1 class="text-center">AngularJS Articles Listing</h1>
+</div>
+<section class="col-xs-12">
+    <div class="alert alert-info text-center col-xs-12" ng-if="articles.length == 0">
+        There is no articles here :)
+    </div>
+    <article class="col-xs-12 bottom-shadow" ng-repeat="article in articles | orderBy: '-date'" ng-if="articles.length > 0">
+        <header>
+            <h2><a ng-href="{{lang + '/articles/' + article.id}}">{{article[lang].title}}</a></h2>
+        </header>
+        <div class="margin-top-bottom" s ng-bind-html="article[lang].content | ellipsis:50"></div>
+        <p class="text-muted margin-top-bottom">{{article.date |  date : 'MMMM d, y'}}</p>
+    </article>
+</section>

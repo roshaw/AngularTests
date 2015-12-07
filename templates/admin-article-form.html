@@ -1,0 +1,98 @@
+<div  class="page-header">
+    <h1>{{page.pageTitle}}</h1>
+</div>
+
+<section class="col-xs-12">
+    <form id="articleForm" class="form-horizontal" autocomplete="off" name="articleForm" ng-submit="submitForm()">
+        <div kendo-tab-strip class="margin-top-bottom">
+            <!-- tab list -->
+            <ul>
+                <li class="k-state-active" ng-click="refreshEditor('en')">English</li>
+                <li ng-click="refreshEditor('de')">German</li>
+                <li ng-click="refreshEditor('bg')">Bulgarian</li>
+            </ul>
+
+            <div class="articleTabForm">
+                <div class="form-group margin-top-bottom">
+                    <label for="titleEn" class="col-sm-2 control-label">Title: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <input ng-model="article.en.title" id="titleEn" class="form-control input-sm" type="text" required
+                               placeholder="Enter article title"/>
+                    </div>
+                </div>
+
+                <div class="form-group margin-top-bottom">
+                    <label for="contentEn" class="col-sm-2 control-label">Content: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <textarea required kendo-editor="enEditor" id="contentEn" k-ng-model="article.en.content"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="articleTabForm">
+                <div class="form-group margin-top-bottom">
+                    <label for="titleDe" class="col-sm-2 control-label">Title: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <input ng-model="article.de.title" id="titleDe" class="form-control input-sm" type="text" required
+                               placeholder="Enter article title"/>
+                    </div>
+                </div>
+
+                <div class="form-group margin-top-bottom">
+                    <label for="contentDe" class="col-sm-2 control-label">Content: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <textarea required kendo-editor="deEditor" id="contentDe" k-ng-model="article.de.content"></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="articleTabForm">
+                <div class="form-group margin-top-bottom">
+                    <label for="titleBg" class="col-sm-2 control-label">Title: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <input ng-model="article.bg.title" id="titleBg" class="form-control input-sm" type="text" required
+                               placeholder="Enter article title"/>
+                    </div>
+                </div>
+
+                <div class="form-group margin-top-bottom">
+                    <label for="contentBg" class="col-sm-2 control-label">Content: <span class="required">*</span></label>
+                    <div class="col-sm-10">
+                        <textarea required kendo-editor="bgEditor" id="contentBg" k-ng-model="article.bg.content"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group margin-top-bottom">
+            <label for="dateInput" class="col-sm-2 control-label">Date: <span class="required">*</span></label>
+            <div class="col-sm-10">
+                <input kendo-date-picker
+                       id="dateInput"
+                       required
+                       placeholder="Pick date"
+                       k-ng-model="article.date"
+                       k-format="'dd.MM.yyyy'"
+                       k-parse-formats ="['yyyy-MM-ddTHH:mm:ss']"
+                       style="width: 160px;" />
+            </div>
+        </div>
+
+
+        <div class="checkbox margin-top-bottom">
+            <label class="col-sm-10 col-sm-offset-2">
+                <input ng-model="article.isActive" type="checkbox"> Is Active
+            </label>
+        </div>
+
+        <div class="form-group margin-top-bottom">
+            <div class="col-md-10 col-sm-offset-2 ">
+                <button type="submit" class="btn btn-primary" ng-disabled="articleForm.$error.required.length || disableSubmit()">{{page.submitTitle}}</button>
+            </div>
+        </div>
+
+    </form>
+</section>

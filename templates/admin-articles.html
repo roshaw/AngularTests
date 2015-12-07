@@ -1,0 +1,20 @@
+<div  class="page-header">
+    <h1>Admin articles</h1>
+</div>
+<section class="col-xs-12">
+    <div class="clearfix">
+        <a ng-href="{{'admin/' + lang + '/articles/add'}}" class="btn btn-sm btn-primary pull-right margin-top-bottom">+ Add new</a>
+    </div>
+    <div class="alert alert-info text-center col-xs-12" ng-if="articles.length == 0">
+        There is no articles here :)
+    </div>
+    <div kendo-grid="articlesGrid" k-options="articlesGridOptions" ng-if="articles.length > 0"></div>
+    <div kendo-window="confirmWindow" k-modal="true" k-visible="false" k-width="300">
+        <div style="text-align: center; width:100%">
+            <div style="margin:10px 0 15px 0">Are you sure you want to delete record: <b>{{deleteElementTitle}}</b></div>
+            <button class="k-button pull-right" id="noButton" ng-click="modalNo()">No</button>
+            <button class="k-button k-primary pull-right margin-left-right" id="yesButton" ng-click="modalYes(deleteElementId)">Yes</button>
+        </div>
+    </div>
+</section>
+

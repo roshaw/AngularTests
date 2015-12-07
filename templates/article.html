@@ -1,0 +1,23 @@
+<article class="col-xs-12">
+    <header  class="page-header">
+        <h1 class="text-center">{{article[lang].title}}</h1>
+    </header>
+    <div ng-bind-html="article[lang].content" class="margin-top-bottom"></div>
+    <p class="text-muted margin-top-bottom">{{article.date |  date : 'MMMM d, y'}}</p>
+</article>
+<nav class="col-xs-12">
+    <div class="clearfix margin-top-bottom">
+        <a class="pull-right" ng-href="{{lang}}"><i class="fa fa-arrow-left"></i> Back to the listing</a>
+    </div>
+    <div class="margin-top-bottom">
+        <a ng-href="{{previousUrl}}" ng-if="previousUrl">
+            <i class="fa fa-angle-double-left"></i>
+            Previous
+        </a>
+        <span ng-if="previousUrl && nextUrl">-</span>
+        <a ng-href="{{nextUrl}}" ng-if="nextUrl">
+            Next
+            <i class="fa fa-angle-double-right"></i>
+        </a>
+    </div>
+</nav>

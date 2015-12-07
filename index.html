@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css"  rel="stylesheet" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css"  rel="stylesheet" />
+    <link href="node_modules/font-awesome/css/font-awesome.min.css"  rel="stylesheet" />
+    <link href="lib/kendo/styles/kendo.common-bootstrap.min.css"  rel="stylesheet" />
+    <link href="lib/kendo/styles/kendo.bootstrap.min.css"  rel="stylesheet" />
+    <link href="css/style.css"  rel="stylesheet" />
+
+    <script src="node_modules/faker/build/build/faker.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+    <div ng-cloak>
+        <header class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="navbar-inner">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-menu, #lang-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a ng-href="{{'./' + lang}}" class="navbar-brand">
+                            <span class="pull-right">Articles app</span>
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-left" id="header-menu">
+                        <ul class="nav navbar-nav" >
+                            <li><a ng-href="{{'/' + lang}}">Articles</a></li>
+                            <li><a ng-href="{{'/admin/' + lang}}">Admin</a></li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="lang-menu">
+                        <ul class="nav navbar-nav" >
+                            <li style="line-height: 50px;">Language:
+                                <select kendo-drop-down-list ng-model="lang">
+                                    <option value="en">English</option>
+                                    <option value="de">German</option>
+                                    <option value="bg">Bulgarian</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="container" style="margin-top:100px;">
+            <div ng-view class="row">
+
+            </div>
+        </main>
+    </div>
+    <script data-main="js/app" src="./node_modules/requirejs/require.js"></script>
+</body>
+</html>

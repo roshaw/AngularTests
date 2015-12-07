@@ -1,0 +1,30 @@
+{
+  "name": "angular-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-local-storage": "^0.2.2",
+    "angular-route": "^1.4.8",
+    "angular-sanitize": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "faker": "^3.0.1",
+    "font-awesome": "^4.5.0",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "requirejs": "^2.1.22"
+  },
+  "devDependencies": {
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roshaw/AngularTests.git"
+  }
+}
