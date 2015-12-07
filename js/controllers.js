@@ -153,10 +153,12 @@ define(['angular', 'angularLocalStorage'], function () {
                 $scope.confirmWindow.open();
             };
 
+            //Reject delete
             $scope.modalNo = function () {
                 $scope.confirmWindow.close();
             };
 
+            //Confir delete
             $scope.modalYes = function (id) {
                 $scope.deleteArticle(id);
                 $scope.confirmWindow.close();
@@ -170,6 +172,7 @@ define(['angular', 'angularLocalStorage'], function () {
         function ($scope, $routeParams, $timeout) {
             $scope.lang = $routeParams.lang;
 
+            //Refresh editor on tab change
             $scope.refreshEditor = function (lang) {
                 var timer = $timeout(function () {
                     $scope[lang + 'Editor'].refresh();
@@ -180,8 +183,10 @@ define(['angular', 'angularLocalStorage'], function () {
                 });
             };
 
+            //First load call refreshEditor EN
             $scope.refreshEditor('en');
 
+            //Disable submit button on cases that not working with require - Editor and DatePicker
             $scope.disableSubmit = function () {
                 if (
                     ((_.isEmpty($scope.article.date) && !_.isDate($scope.article.date)) || (!_.isEmpty($scope.article.date) && !_.isDate(new Date($scope.article.date)))) ||
@@ -205,11 +210,13 @@ define(['angular', 'angularLocalStorage'], function () {
 
             angular.extend(this, $controller('AdminArticleCtrl', {$scope: $scope}));
 
+            //Set titles
             $scope.page = {
                 pageTitle: 'Add new article',
                 submitTitle: 'Add article'
             }
 
+            //New article obj
             $scope.article = {
                 id: faker.random.uuid(),
                 date: '',
@@ -260,8 +267,10 @@ define(['angular', 'angularLocalStorage'], function () {
                     return article.id === articleId;
                 });
 
+            //Get article for edit
             $scope.article = articles[index];
 
+            //Set titles
             $scope.page = {
                 pageTitle: 'Edit article',
                 submitTitle: 'Edit article'
